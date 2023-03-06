@@ -68,10 +68,10 @@
         }
         return ScriptError;
     };
-    MartyScript.prototype.load = function(load = undefined, url = undefined){
+    MartyScript.prototype.load = function(load){// = undefined, url = undefined){
         var error = this.error;
         var language = this.language;
-        if(url != undefined){
+        /*if(url != undefined){
             httpRequest = new XMLHttpRequest();
             httpRequest.onreadystatechange = () => {
                 if (httpRequest.readyState === XMLHttpRequest.DONE) {
@@ -85,9 +85,9 @@
             };
             httpRequest.open('GET', url);
             httpRequest.send();
-        } else if(load != undefined){
+        } else */if(load != undefined){
             this.load_ms = this.load_ms + "\n" + load;
-        } else {
+        }/* else {
             document.querySelectorAll('script[language="MartyScript"]').forEach(function(element){
                 httpRequest = new XMLHttpRequest();
                 httpRequest.onreadystatechange = () => {
@@ -104,7 +104,7 @@
                 httpRequest.open('GET', element.getAttribute("src"));
                 httpRequest.send();
             });
-        }
+        }*/
     };
     MartyScript.prototype.compilation = function(txt){
         txt = txt + "\n" + this.load_ms;
